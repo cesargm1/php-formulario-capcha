@@ -21,7 +21,7 @@ $font = '../font/Consolas.ttf';
 $fontSize = 20;
 
 
-// verificamos si el codigo de la sesion es igual al capcha
+// verificamos si el codigo de la sesion es igual al capcha code_verify sera el codigo de la sesion 
 
 $_SESSION['code_verify'] = sha1($codeCapcha);
 
@@ -31,9 +31,21 @@ if (!file_exists($font)) {
 
 $image = imagecreatetruecolor($width, $height);
 
-// aplicamos un color al texto primer parametro segundo tercero 
+// aplicamos un color al texto color de fondo y un color secundario primer parametro segundo tercero 
 
 $colorText = imagecolorallocate($image, 109, 179, 196);
+
+$colorSecunday = imagecolorallocate($image, 0, 23, 196);
+
+$badgroundImage = imagecolorallocate($image, 12, 21, 100);
+
+// creamos las lineas 
+
+for ($i = 0; $i < 7; $i++) {
+    imageline($image, 0, rand(0, $height), $width, rand(0, $height), $colorSecunday);
+}
+
+imagefill($image, 0, 0, $badgroundImage);
 
 // comvertir imagen ttf a texto
 
