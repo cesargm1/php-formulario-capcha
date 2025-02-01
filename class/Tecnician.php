@@ -1,27 +1,27 @@
 <?php
 
-include 'connection.php';
+include_once 'Person.php';
+
 class Tecnician extends Person
 {
-    public $months;
+    public $trienniums;
 
-    public function __construct($dni, $name, $phone, $months, $conn)
+    public function __construct($dni, $name, $phone, $trienniums, $conn)
     {
-        parent::__construct($dni, $name, $phone);
-        $this->$months;
+        parent::__construct($dni, $name, $phone, $conn);
 
-        $dni = $_REQUEST['dni'] ?? '';
-        $name = $_REQUEST['name'] ?? '';
-        $phone = $_REQUEST['phone'] ?? '';
-        $months = $_REQUEST['months'] ?? '';
+        $this->trienniums = $trienniums;
+    }
 
-        $sql__insert_employe = "INSERT INTO company (dni, name, phone, months) VALUES (?, ?, ?, ?)";
+    public function create()
+    {
+        $this->createPerson();
 
-        $stmt = $conn->prepare($sql__insert_employe);
-        $stmt->bind_param('sss', $dni, $name, $phone, $months);
+        $sql__insert_employe = "INSERT INTO technicians (dni, trienniums) VALUES (?, ?)";
+
+        $stmt = $this->conn->prepare($sql__insert_employe);
+        $stmt->bind_param('ss', $this->dni, $this->trienniums);
 
         $stmt->execute();
-
-        echo "tecnico creado correctamente";
     }
 }

@@ -1,44 +1,27 @@
 <?php
-include 'connection.php';
+
+include_once 'Person.php';
+
 class Professor extends Person
 {
-    public $trienios;
-    public function __construct($dni, $name, $phone, $trienios, $conn)
+    public $months;
+
+    public function __construct($dni, $name, $phone, $months, $conn)
     {
+        parent::__construct($dni, $name, $phone, $conn);
 
-        parent::__construct($dni, $name, $phone);
-        $this->$trienios;
+        $this->months = $months;
+    }
 
-        $dni = $_REQUEST['dni'] ?? '';
-        $name = $_REQUEST['name'] ?? '';
-        $phone = $_REQUEST['phone'] ?? '';
-        $months = $_REQUEST['months'] ?? '';
-        $trienios = $_REQUEST['trienios'] ?? '';
+    public function create()
+    {
+        $this->createPerson();
 
-        $sql__insert_employe = "INSERT INTO profesores (dni, nombre, telefono, trienios) VALUES (?, ?, ?, ?)";
+        $sql__insert_employe = "INSERT INTO teachers (dni, trienniums) VALUES (?, ?)";
 
-        $stmt = $conn->prepare($sql__insert_employe);
-        $stmt->bind_param('ssss', $dni, $name, $phone, $trienios);
+        $stmt = $this->conn->prepare($sql__insert_employe);
+        $stmt->bind_param('ss', $this->dni, $this->months);
 
         $stmt->execute();
-
-        echo "Empresa creada correctamente";
     }
 }
-
-?>
-
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <button><a href="index.html">>volver al formulario</a>
-</body>
-
-</html>

@@ -1,24 +1,29 @@
 <?php
-include 'connection.php';
-class Person
+
+abstract class Person
 {
     protected  $dni;
     protected $name;
     protected $phone;
+    protected $conn;
 
-    protected function __construct($dni, $name, $phone, $conn)
+    abstract public function create();
+
+    public function __construct($dni, $name, $phone, $conn)
     {
         $this->dni = $dni;
         $this->name = $name;
         $this->phone = $phone;
+        $this->conn = $conn;
+    }
 
+    public function createPerson()
+    {
         $sql__insert_employe = "INSERT INTO persons (dni, name, phone) VALUES (?, ?, ?)";
 
-        $stmt = $conn->prepare($sql__insert_employe);
-        $stmt->bind_param('ssss', $dni, $name, $phone);
+        $stmt = $this->conn->prepare($sql__insert_employe);
+        $stmt->bind_param('sss', $this->dni, $this->name, $this->phone);
 
         $stmt->execute();
-
-        echo "tecnico creado correctamente";
     }
 }

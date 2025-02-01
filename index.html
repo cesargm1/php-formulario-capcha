@@ -1,22 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Escuelas</title>
+	</head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escuelas</title>
-</head>
+	<body>
+		<section>
+			<h2>Crear Conserje</h2>
 
-<body>
-    <form action="/class/Person.php" method="post">
-        <label>
-            dni:
-            <input type="text" name="dni">
-        </label>
+			<form action="crear.php" method="post">
+				<label>
+					dni:
+					<input type="text" name="dni" />
+				</label>
+				<label>
+					nombre:
+					<input type="text" name="nombre" />
+				</label>
+				<label>
+					telefono:
+					<input type="text" name="telefono" />
+				</label>
 
-        <img src="capcha/funcs/generate_code.php" alt="capcha">
+				<label>
+					categoría:
+					<input type="text" name="categoria" />
+				</label>
 
-    </form>
-</body>
+				<input type="hidden" name="type" value="conserje" />
 
+				<!-- <img src="capcha/funcs/generate_code.php" alt="capcha"> -->
+				<button type="submit">Crear conserje</button>
+			</form>
+		</section>
+
+		<section>
+			<h2>Crear Profesor</h2>
+
+			<form action="crear.php" method="post">
+				<label>
+					dni:
+					<input type="text" name="dni" />
+				</label>
+				<label>
+					nombre:
+					<input type="text" name="nombre" />
+				</label>
+				<label>
+					telefono:
+					<input type="text" name="telefono" />
+				</label>
+				<label>
+					mes:
+					<input type="text" name="months" />
+				</label>
+
+				<input type="hidden" name="type" value="profesor" />
+
+				<!-- <img src="capcha/funcs/generate_code.php" alt="capcha"> -->
+
+				<button type="submit">Crear profesor</button>
+			</form>
+		</section>
+	</body>
 </html>

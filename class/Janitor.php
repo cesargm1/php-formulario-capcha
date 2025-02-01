@@ -1,25 +1,27 @@
 <?php
-include 'connection.php';
-class janitors extends Person
+
+include_once 'Person.php';
+
+class Janitor extends Person
 {
     public $category;
+
     public function __construct($dni, $name, $phone, $category, $conn)
     {
-        parent::__construct($dni, $name, $phone);
-        $this->$category;
+        parent::__construct($dni, $name, $phone, $conn);
 
-        $dni = $_REQUEST['dni'] ?? '';
-        $name = $_REQUEST['name'] ?? '';
-        $phone = $_REQUEST['phone'] ?? '';
-        $months = $_REQUEST['months'] ?? '';
+        $this->category = $category;
+    }
 
-        $sql__insert_employe = "INSERT INTO conserjes (dni, nombre, phone category) VALUES (?, ?, ?, ?)";
+    public function create()
+    {
+        $this->createPerson();
 
-        $stmt = $conn->prepare($sql__insert_employe);
-        $stmt->bind_param('sssss', $dni, $name, $phone, $months, $category);
+        $sql__insert_employe = "INSERT INTO janitors (dni, category) VALUES (?, ?)";
+
+        $stmt = $this->conn->prepare($sql__insert_employe);
+        $stmt->bind_param('ss', $this->dni, $this->category);
 
         $stmt->execute();
-
-        echo "tecnico creado correctamente";
     }
 }
