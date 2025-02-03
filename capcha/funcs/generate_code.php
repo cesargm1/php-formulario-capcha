@@ -37,7 +37,7 @@ $colorText = imagecolorallocate($image, 109, 179, 196);
 
 $colorSecunday = imagecolorallocate($image, 0, 23, 196);
 
-$badgroundImage = imagecolorallocate($image, 12, 21, 100);
+$badgroundImage = imagecolorallocate($image, 255, 255, 255);
 
 // creamos las lineas 
 
@@ -45,11 +45,16 @@ for ($i = 0; $i < 7; $i++) {
     imageline($image, 0, rand(0, $height), $width, rand(0, $height), $colorSecunday);
 }
 
+// Creando puntos 
+for ($i = 0; $i < 500; $i++) {
+    imagesetpixel($image, rand(0, $width),  rand(0, $height),  $colorSecunday);
+}
+
 imagefill($image, 0, 0, $badgroundImage);
 
 // comvertir imagen ttf a texto
 
-imagettftext($image, $fontSize, 0, 10, 30, $colorText, $font, $codeCapcha);
+imagettftext($image, $fontSize, -10, 10, 30, $colorText, $font, $codeCapcha);
 
 header('content-Type:image/png');
 
