@@ -4,6 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Escuelas</title>
+		<link rel="stylesheet" href="css/style.css" />
 	</head>
 
 	<body>
@@ -13,11 +14,11 @@
 			<form action="crear.php" method="post">
 				<label>
 					dni:
-					<input type="text" name="dni" />
+					<input type="text" name="dni" list="dnis" />
 				</label>
 				<label>
 					nombre:
-					<input type="text" name="nombre" />
+					<input type="text" name="nombre" list="nombres" />
 				</label>
 				<label>
 					telefono:
@@ -53,8 +54,8 @@
 					<input type="text" name="telefono" />
 				</label>
 				<label>
-					mes:
-					<input type="text" name="months" />
+					trienios:
+					<input type="text" name="trienniums" />
 				</label>
 
 				<input type="hidden" name="type" value="profesor" />
@@ -62,6 +63,56 @@
 				<!-- <img src="capcha/funcs/generate_code.php" alt="capcha"> -->
 
 				<button type="submit">Crear profesor</button>
+			</form>
+		</section>
+
+		<section>
+			<h2>Crear Tecnico</h2>
+
+			<form action="crear.php" method="post">
+				<label>
+					dni:
+					<input type="text" name="dni" />
+				</label>
+				<label>
+					nombre:
+					<input type="text" name="nombre" />
+				</label>
+				<label>
+					telefono:
+					<input type="text" name="telefono" />
+				</label>
+				<label>
+					mes:
+					<input type="text" name="months" />
+				</label>
+
+				<input type="hidden" name="type" value="tecnician" />
+
+				<!-- <img src="capcha/funcs/generate_code.php" alt="capcha"> -->
+
+				<button type="submit">Crear Tecnico</button>
+			</form>
+		</section>
+
+		<section>
+			<h2>Crear Departamento</h2>
+
+			<form action="crear.php" method="post">
+				<label>
+					nombre:
+					<input type="text" name="nombre" />
+				</label>
+				<label>
+					id profesor:
+					<input type="number" name="id" />
+				</label>
+
+				<input type="hidden" name="type" value="departamens" />
+
+				<!-- <img src="capcha/funcs/generate_code.php" alt="capcha"> -->
+
+				<button type="submit">Crear Departamento</button>
 			</form>
 		</section>
 	</body>

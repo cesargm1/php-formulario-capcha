@@ -34,6 +34,6 @@ CREATE TABLE teachers (
 CREATE TABLE departments (
     department_id BIGINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     teacher_id BIGINT UNSIGNED NOT NULL,
-    trienniums VARCHAR(30),
+    name VARCHAR(30),
     FOREIGN KEY (teacher_id) REFERENCES teachers (teacher_id) ON DELETE CASCADE ON UPDATE CASCADE
 );

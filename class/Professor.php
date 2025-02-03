@@ -4,13 +4,13 @@ include_once 'Person.php';
 
 class Professor extends Person
 {
-    public $months;
+    public $trienniums;
 
-    public function __construct($dni, $name, $phone, $months, $conn)
+    public function __construct($dni, $name, $phone, $trienniums, $conn)
     {
         parent::__construct($dni, $name, $phone, $conn);
 
-        $this->months = $months;
+        $this->trienniums = $trienniums;
     }
 
     public function create()
@@ -20,7 +20,7 @@ class Professor extends Person
         $sql__insert_employe = "INSERT INTO teachers (dni, trienniums) VALUES (?, ?)";
 
         $stmt = $this->conn->prepare($sql__insert_employe);
-        $stmt->bind_param('ss', $this->dni, $this->months);
+        $stmt->bind_param('ss', $this->dni, $this->trienniums);
 
         $stmt->execute();
     }

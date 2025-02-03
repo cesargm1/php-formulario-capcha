@@ -4,23 +4,23 @@ include_once 'Person.php';
 
 class Tecnician extends Person
 {
-    public $trienniums;
+    public $months;
 
-    public function __construct($dni, $name, $phone, $trienniums, $conn)
+    public function __construct($dni, $name, $phone, $months, $conn)
     {
         parent::__construct($dni, $name, $phone, $conn);
 
-        $this->trienniums = $trienniums;
+        $this->months = $months;
     }
 
     public function create()
     {
         $this->createPerson();
 
-        $sql__insert_employe = "INSERT INTO technicians (dni, trienniums) VALUES (?, ?)";
+        $sql__insert_employe = "INSERT INTO technicians (dni,months) VALUES (?,?)";
 
         $stmt = $this->conn->prepare($sql__insert_employe);
-        $stmt->bind_param('ss', $this->dni, $this->trienniums);
+        $stmt->bind_param('ss', $this->dni, $this->months);
 
         $stmt->execute();
     }
