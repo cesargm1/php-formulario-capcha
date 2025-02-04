@@ -1,6 +1,6 @@
 <?php
 
-// descomentar en php.ini esta linea
+// descomentar en el archivo  php.ini la linea 922  para que php pueda trabajar con imagenes y luego reiniciar el servidor:
 
 // iniciamos la sesion
 session_start();
@@ -33,9 +33,9 @@ $image = imagecreatetruecolor($width, $height);
 
 // aplicamos un color al texto color de fondo y un color secundario primer parametro segundo tercero 
 
-$colorText = imagecolorallocate($image, 109, 179, 196);
+$colorText = imagecolorallocate($image, 0, 33, 71);
 
-$colorSecunday = imagecolorallocate($image, 0, 23, 196);
+$colorSecunday = imagecolorallocate($image, 20, 40, 40);
 
 $badgroundImage = imagecolorallocate($image, 255, 255, 255);
 

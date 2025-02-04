@@ -8,112 +8,186 @@
 	</head>
 
 	<body>
-		<section>
-			<h2>Crear Conserje</h2>
+		<div class="container">
+			<section>
+				<h2>Crear Conserje</h2>
 
-			<form action="crear.php" method="post">
-				<label>
-					dni:
-					<input type="text" name="dni" list="dnis" />
-				</label>
-				<label>
-					nombre:
-					<input type="text" name="nombre" list="nombres" />
-				</label>
-				<label>
-					telefono:
-					<input type="text" name="telefono" />
-				</label>
+				<form action="crear.php" method="post">
+					<label>
+						dni:
+						<input type="text" name="dni" list="dnis" />
+					</label>
+					<label>
+						nombre:
+						<input type="text" name="nombre" list="nombres" />
+					</label>
+					<label>
+						telefono:
+						<input type="text" name="telefono" />
+					</label>
 
-				<label>
-					categoría:
-					<input type="text" name="categoria" />
-				</label>
+					<label>
+						categoría:
+						<input type="text" name="categoria" />
+					</label>
 
-				<input type="hidden" name="type" value="conserje" />
+					<input type="hidden" name="type" value="conserje" />
 
-				<img src="capcha/funcs/generate_code.php" alt="capcha" />
-				<button type="submit">Crear conserje</button>
-			</form>
-		</section>
+					<label>
+						capcha
+						<input type="text" name="capcha" />
+					</label>
 
-		<section>
-			<h2>Crear Profesor</h2>
+					<img src="capcha/funcs/generate_code.php" alt="capcha" />
+					<button type="button" class="button-generate-capcha">
+						+ genera nuevo codigo
+					</button>
 
-			<form action="crear.php" method="post">
-				<label>
-					dni:
-					<input type="text" name="dni" />
-				</label>
-				<label>
-					nombre:
-					<input type="text" name="nombre" />
-				</label>
-				<label>
-					telefono:
-					<input type="text" name="telefono" />
-				</label>
-				<label>
-					trienios:
-					<input type="text" name="trienniums" />
-				</label>
+					<button type="submit">Crear conserje</button>
+				</form>
+			</section>
 
-				<input type="hidden" name="type" value="profesor" />
+			<section>
+				<h2>Crear Profesor</h2>
 
-				<img src="capcha/funcs/generate_code.php" alt="capcha" />
+				<form action="crear.php" method="post">
+					<label>
+						dni:
+						<input type="text" name="dni" />
+					</label>
+					<label>
+						nombre:
+						<input type="text" name="nombre" />
+					</label>
+					<label>
+						telefono:
+						<input type="text" name="telefono" />
+					</label>
+					<label>
+						trienios:
+						<input type="text" name="trienniums" />
+					</label>
 
-				<button type="submit">Crear profesor</button>
-			</form>
-		</section>
+					<input type="hidden" name="type" value="profesor" />
 
-		<section>
-			<h2>Crear Tecnico</h2>
+					<label>
+						capcha
+						<input type="text" name="capcha" />
+					</label>
 
-			<form action="crear.php" method="post">
-				<label>
-					dni:
-					<input type="text" name="dni" />
-				</label>
-				<label>
-					nombre:
-					<input type="text" name="nombre" />
-				</label>
-				<label>
-					telefono:
-					<input type="text" name="telefono" />
-				</label>
-				<label>
-					mes:
-					<input type="text" name="months" />
-				</label>
+					<img src="capcha/funcs/generate_code.php" alt="capcha" />
 
-				<input type="hidden" name="type" value="tecnician" />
+					<button type="button" class="button-generate-capcha">
+						+ genera nuevo codigo
+					</button>
 
-				<img src="capcha/funcs/generate_code.php" alt="capcha" />
+					<button type="submit">Crear profesor</button>
+				</form>
+			</section>
 
-				<button type="submit">Crear Tecnico</button>
-			</form>
-		</section>
+			<section>
+				<h2>Crear Tecnico</h2>
 
-		<section>
-			<h2>Crear Departamento</h2>
+				<form action="crear.php" method="post">
+					<label>
+						dni:
+						<input type="text" name="dni" />
+					</label>
+					<label>
+						nombre:
+						<input type="text" name="nombre" />
+					</label>
+					<label>
+						telefono:
+						<input type="text" name="telefono" />
+					</label>
+					<label>
+						mes:
+						<input type="text" name="months" />
+					</label>
 
-			<form action="crear.php" method="post">
-				<label>
-					nombre:
-					<input type="text" name="nombre" />
-				</label>
-				<label>
-					id profesor:
-					<input type="number" name="id" />
-				</label>
+					<input type="hidden" name="type" value="tecnician" />
 
-				<input type="hidden" name="type" value="departamens" />
+					<label>
+						capcha
+						<input type="text" name="capcha" />
+					</label>
 
-				<img src="capcha/funcs/generate_code.php" alt="capcha" />
+					<img src="capcha/funcs/generate_code.php" alt="capcha" />
+					<button type="button" class="button-generate-capcha">
+						+ genera nuevo codigo
+					</button>
 
-				<button type="submit">Crear Departamento</button>
-			</form>
-		</section>
+					<button type="submit">Crear Tecnico</button>
+				</form>
+			</section>
+
+			<section>
+				<h2>Crear Departamento</h2>
+
+				<form action="crear.php" method="post">
+					<label>
+						nombre:
+						<input type="text" name="nombre" />
+					</label>
+					<label>
+						id profesor:
+						<input type="number" name="id" />
+					</label>
+
+					<input type="hidden" name="type" value="departamens" />
+
+					<label>
+						capcha
+						<input type="text" name="capcha" />
+					</label>
+
+					<img src="capcha/funcs/generate_code.php" alt="capcha" />
+
+					<button class="button-generate-capcha" type="button">
+						+ genera nuevo codigo
+					</button>
+
+					<button type="submit">Crear Departamento</button>
+				</form>
+			</section>
+		</div>
 	</body>
 </html>
+
+<script>
+	// por js selecionamos la imagen del capcha y tambien el boton de generar nuevo
+	const imgCodes = document.querySelectorAll("img");
+	const buttonsGenerate = document.querySelectorAll(".button-generate-capcha");
+
+	// Creamos un evento click al boton para que suceda algo llarama a una funcion
+
+	/*parametros
+
+	useCapture	Optional (default = false).
+	false - The handler is executed in the bubbling phase.
+	true - The handler is executed in the capturing phase.
+	*/
+
+	// a nuestros botones los recorremos y cada uno de ellos un button al hacer click llama a la funcion generateCode le pasamos los botones como parametro
+
+	buttonsGenerate.forEach((button) => {
+		button.addEventListener("click", generateCode);
+	});
+
+	function generateCode() {
+		// aqui le decimos donde esta el script para que cambie la imagen
+		let url = "capcha/funcs/generate_code.php";
+
+		fetch(url)
+			.then((response) => response.blob())
+			.then((data) => {
+				if (data) {
+					// recorremos todos los codigos
+					imgCodes.forEach((imageCode) => {
+						imageCode.src = URL.createObjectURL(data);
+					});
+				}
+			});
+	}
+</script>
